@@ -1,4 +1,4 @@
-const API_URL = 'https://script.google.com/macros/s/https://script.google.com/macros/s/AKfycbxukxb2Y0o9ju0Eo57ECo_4sOiNLW912O70XP71lDSeukr2HXpN9PCb4h0BFLMkUqicZA/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbxukxb2Y0o9ju0Eo57ECo_4sOiNLW912O70XP71lDSeukr2HXpN9PCb4h0BFLMkUqicZA/exec';
 
 async function fetchImages() {
   const res = await fetch(API_URL);
