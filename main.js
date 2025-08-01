@@ -9,21 +9,14 @@ async function renderGallery() {
   const container = document.getElementById('gallery');
 
   images.forEach(url => {
-    const slide = document.createElement('div');
-    slide.className = 'swiper-slide';
-    slide.innerHTML = `
-      <a href="${url}" download data-lg-size="1600-1200">
-        <img src="${url}" loading="lazy">
-      </a>`;
-    container.appendChild(slide);
+    const a = document.createElement('a');
+    a.href = url;
+    a.dataset.downloadUrl = url;
+    a.innerHTML = `<img src="${url}" loading="lazy">`;
+    container.appendChild(a);
   });
 
-  new Swiper('.swiper-container', {
-    pagination: { el: '.swiper-pagination' },
-    loop: true
-  });
-
-  lightGallery(document.querySelector('.swiper-container'), {
+  lightGallery(container, {
     selector: 'a',
     download: true,
     zoom: true
