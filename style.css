@@ -23,3 +23,6 @@ body {
   display: block;
   cursor: pointer;
 }
+#sentinel {
+  height: 1px;
+}
