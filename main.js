@@ -8,33 +8,12 @@ async function renderGallery() {
   const images = await fetchImages();
   const container = document.getElementById('gallery');
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        obs.unobserve(img);
-      }
-    });
-  }, {
-    rootMargin: '100px'
-  });
-
-  images.forEach(url => {
+  images.forEach(({ thumb, full }) => {
     const a = document.createElement('a');
-    a.href = url;
-    a.dataset.downloadUrl = url;
-
-    const img = document.createElement('img');
-    img.dataset.src = url;
-    img.loading = 'lazy';
-    img.alt = '';
-    img.style.opacity = 0;
-    img.onload = () => img.style.opacity = 1;
-
-    a.appendChild(img);
+    a.href = full;
+    a.dataset.downloadUrl = full;
+    a.innerHTML = `<img src="${thumb}" loading="lazy">`;
     container.appendChild(a);
-    observer.observe(img);
   });
 
   lightGallery(container, {

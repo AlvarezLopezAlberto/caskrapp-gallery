@@ -1,7 +1,7 @@
 import os
 import json
 
-image_folder = 'images'
+image_folder = 'images/full'
 exts = ['.webp', '.jpg', '.png']
 
 images = sorted([
