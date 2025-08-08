@@ -14,8 +14,8 @@ for filename in os.listdir(full_folder):
 
         # Generar thumbnail
         img = Image.open(full_path)
-        img.thumbnail((200, 200))
-        img.save(thumb_path, "WEBP", quality=60, method=6)
+        img.thumbnail((100, 100))
+        img.save(thumb_path, "WEBP", quality=40, method=6)
 
         data.append({
             "thumb": f"{thumb_folder}/{filename}",
